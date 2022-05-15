@@ -28,6 +28,10 @@ export class TraductorComponent implements OnInit {
     this.target = target;
   }
 
+  cambiarTexto(texto: string) {
+    this.texto = texto;
+  }
+
   async traducir(source: string, target:string, texto:string) {
     (await this.traductor.translateText(source, target, texto)).subscribe(async (res) => {
       this.textoTraducido = await res.data.translations.translatedText;
@@ -36,9 +40,6 @@ export class TraductorComponent implements OnInit {
 
   copiar(texto: string) {
     navigator.clipboard.writeText(texto);
-  }
-
-  mostrar(texto: string) {
   }
 
 }

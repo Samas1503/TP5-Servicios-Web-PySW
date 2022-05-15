@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="mb-3">
-            <textarea class="form-control" ng-model="texto" placeholder="Ingrese el texto a traducir"></textarea>
+            <textarea class="form-control" #textoATraducir placeholder="Ingrese el texto a traducir"></textarea>
         </div>
         <div class="mb-3">
             <div class="row">
@@ -59,7 +59,7 @@
                 </div>
             </div>
         </div>
-        <button type="button" (click)="traducir(source,target,texto)" class="btn btn-primary w-100 mb-3 fs-3 text-uppercase fw-bold">Traducir</button>
+        <button type="button" (click)="cambiarTexto(textoATraducir.value)" (click)="traducir(source,target,texto)" class="btn btn-primary w-100 mb-3 fs-3 text-uppercase fw-bold">Traducir</button>
         <div class="mb-3">
             <textarea readonly class="form-control" id="copiar" placeholder="Aqui se mostrara su texto traducido">{{textoTraducido}}</textarea>
         </div>
