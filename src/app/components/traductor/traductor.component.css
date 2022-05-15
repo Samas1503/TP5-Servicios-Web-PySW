@@ -1,0 +1,12 @@
+.icono-boton {
+    width: 40px;
+}
+
+input[type=radio].btn-idioma:checked+label {
+    background-color: rgb(212, 212, 212);
+}
+
+.btn-tareas {
+    background-color: transparent;
+    border-color: transparent;
+}

@@ -1,0 +1,72 @@
+<div class="vh-100 mt-3 d-flex justify-content-center align-items-center">
+    <form>
+        <div class="mb-3">
+            <div class="row">
+                <div class="form-check col-md-3 col-6 p-0 text-center">
+                    <input class="form-check-input d-none btn-idioma" type="radio" name="idioma" id="italiano" (click)="cambiarSource('it')" checked>
+                    <label class="form-check-label px-4 rounded-3" for="italiano"><img class="icono-boton" src="./../../../assets/icons/italia.png" alt="">
+                        <p>Italiano</p>
+                    </label>
+                </div>
+                <div class="form-check col-md-3 col-6 p-0 text-center">
+                    <input class="form-check-input d-none btn-idioma" type="radio" name="idioma" id="frances" (click)="cambiarSource('fr')">
+                    <label class="form-check-label px-4 rounded-3" for="frances"><img class="icono-boton" src="./../../../assets/icons/francia.png" alt="">
+                        <p>Frances</p>
+                    </label>
+                </div>
+                <div class="form-check col-md-3 col-6 p-0 text-center">
+                    <input class="form-check-input d-none btn-idioma" type="radio" name="idioma" id="ingles" (click)="cambiarSource('en')">
+                    <label class="form-check-label px-4 rounded-3" for="ingles"><img class="icono-boton" src="./../../../assets/icons/gbp.png" alt="">
+                        <p>Inglés</p>
+                    </label>
+                </div>
+                <div class="form-check col-md-3 col-6 p-0 text-center">
+                    <input class="form-check-input d-none btn-idioma" type="radio" name="idioma" id="espaniol" (click)="cambiarSource('es')">
+                    <label class="form-check-label px-4 rounded-3" for="espaniol"><img class="icono-boton" src="./../../../assets/icons/espana.png" alt="">
+                        <p>Español</p>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <textarea class="form-control" ng-model="texto" placeholder="Ingrese el texto a traducir"></textarea>
+        </div>
+        <div class="mb-3">
+            <div class="row">
+                <div class="form-check col-md-3 col-6 p-0 text-center">
+                    <input class="form-check-input d-none btn-idioma" type="radio" name="traduccion" id="trad-italiano" (click)="cambiarTarget('it')" checked>
+                    <label class="form-check-label px-4 rounded-3" for="trad-italiano"><img class="icono-boton" src="./../../../assets/icons/italia.png" alt="">
+                        <p>Italiano</p>
+                    </label>
+                </div>
+                <div class="form-check col-md-3 col-6 p-0 text-center">
+                    <input class="form-check-input d-none btn-idioma" type="radio" name="traduccion" id="trad-frances" (click)="cambiarTarget('fr')">
+                    <label class="form-check-label px-4 rounded-3" for="trad-frances"><img class="icono-boton" src="./../../../assets/icons/francia.png" alt="">
+                        <p>Frances</p>
+                    </label>
+                </div>
+                <div class="form-check col-md-3 col-6 p-0 text-center">
+                    <input class="form-check-input d-none btn-idioma" type="radio" name="traduccion" id="trad-ingles" (click)="cambiarTarget('en')">
+                    <label class="form-check-label px-4 rounded-3" for="trad-ingles"><img class="icono-boton" src="./../../../assets/icons/gbp.png" alt="">
+                        <p>Inglés</p>
+                    </label>
+                </div>
+                <div class="form-check col-md-3 col-6 p-0 text-center">
+                    <input class="form-check-input d-none btn-idioma" type="radio" name="traduccion" id="trad-espaniol" (click)="cambiarTarget('es')">
+                    <label class="form-check-label px-4 rounded-3" for="trad-espaniol"><img class="icono-boton" src="./../../../assets/icons/espana.png" alt="">
+                        <p>Español</p>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <button type="button" (click)="traducir(source,target,texto)" class="btn btn-primary w-100 mb-3 fs-3 text-uppercase fw-bold">Traducir</button>
+        <div class="mb-3">
+            <textarea readonly class="form-control" id="copiar" placeholder="Aqui se mostrara su texto traducido">{{textoTraducido}}</textarea>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+            <button type="button" class="btn-tareas" (click)="copiar(textoTraducido)"><i class="bi bi-clipboard fs-2 text-success"></i><p>Copiar</p></button>
+            <button type="button" class="btn-tareas"><i class="bi bi-trash fs-2 text-danger"></i><p>Eliminar</p></button>
+            <button type="button" class="btn-tareas"><i class="bi bi-volume-up fs-2 text-primary"></i><p>Escuchar</p></button>
+        </div>
+    </form>
+</div>
