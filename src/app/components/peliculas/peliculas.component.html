@@ -1,82 +1,24 @@
 <div class="container-fluid">
     <div class="d-lg-flex">
         <div class="row col-md-12 col-lg-8 mt-4 mx-auto">
-            <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let pelicula of peliculas">
                 <div class="card">
-                    <img src="./../../../assets/img/Avengers-EndGame.jpg" alt="" class="card-img">
+                    <img [src]="pelicula.imagen" alt="" class="card-img">
                     <div class="card-img-overlay">
-                        <h1 class="text-warning"><i class="bi bi-star"></i> 4.5</h1>
+                        <h3 class="text-warning"><i class="bi bi-star"></i>{{pelicula.rating}}</h3>
                     </div>
                     <div class="card-body">
-                        <h2 class="card-title text-primary">Avengers: Endgame</h2>
-                        <p class="card-text">Abril 26, 2019</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="card">
-                    <img src="./../../../assets/img/batman.jpg" alt="" class="card-img">
-                    <div class="card-img-overlay">
-                        <h1 class="text-warning"><i class="bi bi-star"></i> 4.5</h1>
-                    </div>
-                    <div class="card-body">
-                        <h2 class="card-title text-primary">The Batman</h2>
-                        <p class="card-text">Marzo 3, 2022</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="card">
-                    <img src="./../../../assets/img/inensamente.jpg" alt="" class="card-img">
-                    <div class="card-img-overlay">
-                        <h1 class="text-warning"><i class="bi bi-star"></i> 4.6</h1>
-                    </div>
-                    <div class="card-body">
-                        <h2 class="card-title text-primary">Intensamente</h2>
-                        <p class="card-text">Junio 19, 2015</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="card">
-                    <img src="./../../../assets/img/joker.jpg" alt="" class="card-img">
-                    <div class="card-img-overlay">
-                        <h1 class="text-warning"><i class="bi bi-star"></i> 4.7</h1>
-                    </div>
-                    <div class="card-body">
-                        <h2 class="card-title text-primary">Joker</h2>
-                        <p class="card-text">Octubre 4, 2019</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="card">
-                    <img src="./../../../assets/img/malefica.png" alt="" class="card-img">
-                    <div class="card-img-overlay">
-                        <h1 class="text-warning"><i class="bi bi-star"></i> 4.8</h1>
-                    </div>
-                    <div class="card-body">
-                        <h2 class="card-title text-primary">Maléfica</h2>
-                        <p class="card-text">Mayo 29, 2014</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="card">
-                    <img src="./../../../assets/img/wolverine-inmortal.jpg" alt="" class="card-img">
-                    <div class="card-img-overlay">
-                        <h1 class="text-warning"><i class="bi bi-star"></i> 4.2.</h1>
-                    </div>
-                    <div class="card-body">
-                        <h2 class="card-title text-primary">Wolverine: inmortal</h2>
-                        <p class="card-text">Julio 25, 2013</p>
+                        <h2 class="card-title text-primary">{{pelicula.titulo}}</h2>
+                        <small class="card-text">{{pelicula.creacion}}</small>
+                        <p class="card-text">{{pelicula.descripcion}}</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row col-md-12 col-lg-4 my-4 px-4">
-            <img class="img-fluid col-sm-12 col-md-6 col-lg-12 py-4" src="./../../../assets/img/publicidad-1.jpg" alt="">
-            <img class="img-fluid col-sm-12 col-md-6 col-lg-12 py-4" src="./../../../assets/img/publicidad-2.jpg" alt="">
+        <div class="col-md-12 col-lg-4 my-4 px-4">
+            <div class="d-flex flex-md-column col-sm-12 col-md-6 col-lg-12 py-4" *ngFor="let p of publicidad">
+                <img class="img-fluid" [src]="p" alt="">
+            </div>
         </div>
     </div>
 </div>
