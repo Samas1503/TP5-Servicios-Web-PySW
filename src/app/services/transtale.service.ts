@@ -9,20 +9,6 @@ export class TranstaleService {
   
   constructor(private http: HttpClient) { }
   
-  // public detectLanguage(text:string): Observable<any> {
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({
-  //       'X-RapidAPI-Host': 'deep-translate1.p.rapidapi.com',
-  //       'X-RapidAPI-Key': 'f5bd839dc5msh43cdd353da82d74p17443cjsna0c6fb0266df',
-  //     }),
-  //     data: { 'q': text }
-  //   };
-  //   return this.http.post(
-  //     'https://deep-translate1.p.rapidapi.com/language/translate/v2/detect',
-  //     httpOptions
-  //   );
-  // }
-  
   public async translateText(source: string,target: string,text: string): Promise<Observable<any>> {
     const httpOptions = {
       headers: new HttpHeaders({

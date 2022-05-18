@@ -1,3 +1,4 @@
+import { CrearQRComponent } from './components/crear-qr/crear-qr.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TraductorComponent } from './components/traductor/traductor.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'pelicula', component: PeliculasComponent, pathMatch: 'full' },
   { path: 'conversor', component: ConversorComponent, pathMatch: 'full' },
   { path: 'traductor', component: TraductorComponent, pathMatch: 'full' },
+  { path: 'qrCreator', component: CrearQRComponent, pathMatch: 'full' },
 ];
 
 @NgModule({

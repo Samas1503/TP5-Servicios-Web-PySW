@@ -41,14 +41,6 @@ export class TraductorComponent implements OnInit {
     );
   }
 
-  // async detectar(texto: string) {
-  //   (await this.traductor.detectLanguage(texto)).subscribe(
-  //     async (res) => {
-  //       await console.log(res.data.detections[0].languaje);
-  //     }
-  //   );
-  // }
-
   copiar(texto: string) {
     navigator.clipboard.writeText(texto);
   }

@@ -1,265 +1,59 @@
 <div class="row d-flex m-0">
-    <div class="col-md-8 d-none d-md-block p-2">
+    <div class="col-md-9 d-none d-md-block p-2">
         <div class="w-100 py-3 fs-4 mb-3 text-center text-white bg-primary">Conversor de divisas</div>
         <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                        <th scope="col">
-                            <img class="icono-tabla img-fluid d-block mx-auto" src="./../../../assets/icons/usd.png">
-                            <p class="text-uppercase text-center">usd</p>
-                        </th>
-                        <th scope="col">
-                            <img class="icono-tabla img-fluid d-block mx-auto" src="./../../../assets/icons/eur.png">
-                            <p class="text-uppercase text-center">eur</p>
-                        </th>
-                        <th scope="col">
-                            <img class="icono-tabla img-fluid d-block mx-auto" src="./../../../assets/icons/gbp.png">
-                            <p class="text-uppercase text-center">bpg</p>
-                        </th>
-                        <th scope="col">
-                            <img class="icono-tabla img-fluid d-block mx-auto" src="./../../../assets/icons/jpy.png">
-                            <p class="text-uppercase text-center">jpy</p>
-                        </th>
-                        <th scope="col">
-                            <img class="icono-tabla img-fluid d-block mx-auto" src="./../../../assets/icons/cny.png">
-                            <p class="text-uppercase text-center">cny</p>
-                        </th>
-                        <th scope="col">
-                            <img class="icono-tabla img-fluid d-block mx-auto" src="./../../../assets/icons/aud.png">
-                            <p class="text-uppercase text-center">aud</p>
-                        </th>
-                        <th scope="col">
-                            <img class="icono-tabla img-fluid d-block mx-auto" src="./../../../assets/icons/btc.png">
-                            <p class="text-uppercase text-center">btc</p>
-                        </th>
-                        <th scope="col">
-                            <img class="icono-tabla img-fluid d-block mx-auto" src="./../../../assets/icons/ars.png">
-                            <p class="text-uppercase text-center">ars</p>
+                        <th colspan="2"></th>
+                        <th *ngFor="let moneda of monedas">
+                            <img class="icono-tabla img-fluid d-block mx-auto" [src]="moneda.icono">
+                            <p class="text-center">{{moneda.nombre | uppercase}}</p>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr *ngFor="let dato of datos">
                         <th scope="row">
                             <div class="d-flex justify-contennt-center my-1">
-                                <img class="icono-tabla d-block mx-auto my-auto" src="./../../../assets/icons/usd.png">
+                                <img class="icono-tabla d-block mx-auto my-auto" [src]="dato.icono">
                             </div>
                         </th>
                         <td>
-                            <p class="mx-0 my-1 text-center text-uppercase">1 usd</p>
+                            <p class="mx-0 my-1 text-center text-uppercase">1 {{dato.nombre}}</p>
                             <p class="mx-0 my-1 text-center text-capitalize">inverse</p>
                         </td>
-                        <td>
-                            <p class="text-center my-1">1.000000</p>
-                            <p class="text-center my-1">1.000000</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">0.919901</p>
-                            <p class="text-center my-1">1.087074</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">0.811469</p>
-                            <p class="text-center my-1">1.232332</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">108.9079</p>
-                            <p class="text-center my-1">0.009182</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">7.057569</p>
-                            <p class="text-center my-1">0.141692</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">1.619886</p>
-                            <p class="text-center my-1">0.617328</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">0.000140</p>
-                            <p class="text-center my-1">7148.757</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">64.87725</p>
-                            <p class="text-center my-1">0.015414</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <div class="d-flex justify-contennt-center my-1">
-                                <img class="icono-tabla d-block mx-auto my-auto" src="./../../../assets/icons/eur.png">
-                            </div>
-                        </th>
-                        <td>
-                            <p class="mx-0 my-1 text-center text-uppercase">1 eur</p>
-                            <p class="mx-0 my-1 text-center text-capitalize">inverse</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">1.087074</p>
-                            <p class="text-center my-1">0.919901</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">1.000000</p>
-                            <p class="text-center my-1">1.000000</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">0.882127</p>
-                            <p class="text-center my-1">1.133623</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">118.3910</p>
-                            <p class="text-center my-1">0.008447</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">7.678100</p>
-                            <p class="text-center my-1">0.130342</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">1.760936</p>
-                            <p class="text-center my-1">0.567880</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">0.000152</p>
-                            <p class="text-center my-1">6576.146</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">70.52637</p>
-                            <p class="text-center my-1">0.014179</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <div class="d-flex justify-contennt-center my-1">
-                                <img class="icono-tabla d-block mx-auto my-auto" src="./../../../assets/icons/gbp.png">
-                            </div>
-                        </th>
-                        <td>
-                            <p class="mx-0 my-1 text-center text-uppercase">1 gbp</p>
-                            <p class="mx-0 my-1 text-center text-capitalize">inverse</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">1.232332</p>
-                            <p class="text-center my-1">0.811469</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">1.133623</p>
-                            <p class="text-center my-1">0.882127</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">1.000000</p>
-                            <p class="text-center my-1">1.000000</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">134.2108</p>
-                            <p class="text-center my-1">0.007451</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">8.697272</p>
-                            <p class="text-center my-1">0.114979</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">1.996238</p>
-                            <p class="text-center my-1">0.500942</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">0.000172</p>
-                            <p class="text-center my-1">5800.997</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">79.95034</p>
-                            <p class="text-center my-1">0.012508</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <div class="d-flex justify-contennt-center my-1">
-                                <img class="icono-tabla d-block mx-auto my-auto" src="./../../../assets/icons/rub.png">
-                            </div>
-                        </th>
-                        <td>
-                            <p class="mx-0 my-1 text-center text-uppercase">1 rub</p>
-                            <p class="mx-0 my-1 text-center text-capitalize">inverse</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">0.013226</p>
-                            <p class="text-center my-1">75.61134</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">0.012166</p>
-                            <p class="text-center my-1">82.19511</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">0.010732</p>
-                            <p class="text-center my-1">93.17830</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">1.440365</p>
-                            <p class="text-center my-1">0.694268</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">0.093340</p>
-                            <p class="text-center my-1">10.71351</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">0.021424</p>
-                            <p class="text-center my-1">46.67696</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">0.000002</p>
-                            <p class="text-center my-1">540527.1</p>
-                        </td>
-                        <td>
-                            <p class="text-center my-1">0.858036</p>
-                            <p class="text-center my-1">1.165452</p>
+                        <td *ngFor="let valor of dato.valor.directo;let i=index">
+                            <p class="text-center my-1">{{dato.valor.directo[i] | number:"1.6"}}</p>
+                            <p class="text-center my-1">{{dato.valor.inverso[i] | number:"1.6"}}</p>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
-    <div class="col-md-4 col-sm-12 p-2">
+    <div class="col-md-3 col-sm-12 p-2">
         <div class="py-1 fs-5 mb-3 text-center text-white text-capitalize bg-primary">Conversor de divisas</div>
         <form class="text-white bg-primary pt-2 pb-2">
             <div class="m-3">
                 <label for="numero" class="form-label">Cantidad:</label>
-                <input type="number" class="form-control" id="numero">
+                <input type="number" [(ngModel)]="montoI" name="montoInicial" class="form-control" id="numero" (change)="convertirModena(actual,posterior,montoI)">
             </div>
             <div class="m-3">
                 <label for="moneda" class="form-label">De</label>
-                <select id="moneda" class="form-select">
-                    <option selected>Selecciona una Moneda</option>
-                    <option value="USD">(USD) Dólares - EEUU</option>
-                    <option value="EUR">(EUR) Éuros - Europa</option>
-                    <option value="BGP">(GBP) Lira Esterlina - Gran Bretaña</option>
-                    <option value="JPY">(JPY) Yenes - Japón</option>
-                    <option value="CNY">(CNY) Yuán - China</option>
-                    <option value="AUD">(AUD) Australiano - Australia</option>
-                    <option value="BTC">(BTC) Bitcoin</option>
-                    <option value="ARS">(ARS) Peso Argentino - Argentina</option>
+                <select id="moneda" [(ngModel)]="actual" name="monedaActual" class="form-select" (change)="convertirModena(actual,posterior,montoI)">
+                        <option *ngFor="let opcion of monedas" [value]="opcion.nombre">({{opcion.nombre}}) {{opcion.detalle}}</option>
                 </select>
             </div>
             <div class="m-3">
                 <label for="moneda-cambiar" class="form-label">A</label>
-                <select id="moneda-cambiar" class="form-select">
-                    <option selected>Selecciona una Moneda</option>
-                    <option value="USD">(USD) Dólares - EEUU</option>
-                    <option value="EUR">(EUR) Éuros - Europa</option>
-                    <option value="BGP">(GBP) Lira Esterlina - Gran Bretaña</option>
-                    <option value="JPY">(JPY) Yenes - Japón</option>
-                    <option value="CNY">(CNY) Yuán - China</option>
-                    <option value="AUD">(AUD) Australiano - Australia</option>
-                    <option value="BTC">(BTC) Bitcoin</option>
-                    <option value="ARS">(ARS) Peso Argentino - Argentina</option>
+                <select id="moneda-cambiar" [(ngModel)]="posterior" name="monedaPosterior" class="form-select" (change)="convertirModena(actual,posterior,montoI)">
+                        <option *ngFor="let opcion of monedas" [value]="opcion.nombre">({{opcion.nombre}}) {{opcion.detalle}}</option>
                 </select>
             </div>
-            <fieldset disabled>
-                <div class="m-3">
-                    <input type="number" class="form-control" id="resultado">
-                </div>
-            </fieldset>
-            <div class="m-3 d-flex justifi-content-center">
-                <button type="submit" class="btn btn-warning w-100">Convertir</button>
+            <div class="m-3">
+                <small>Total: </small>
+                <p class="bg-light text-dark text-end p-2 rounded">{{posterior+"$"}}{{montoP | number:'1.6' }}</p>
             </div>
         </form>
     </div>
