@@ -1,13 +1,15 @@
-<div class="container qr d-flex align-items-center pt-5">
-    <form class="col-6">
+<div class="container qr d-block d-lg-flex align-items-center pt-5">
+    <form class="col col-lg-6">
         <div class="m-3">
             <label for="inputURL" class="form-label">Ingrese la URL para convertir en un codigo QR</label>
             <input type="url" class="form-control" id="inputURL" [(ngModel)]="url" name="inputURL">
             <small class="form-text">asegurese de que sea una URL valida</small>
         </div>
     </form>
-    <button type="button" class="btn btn-primary col-3 m-3" (click)="generarQR(url)">Generar</button>
-    <div class="col-3">
+    <div class="col col-lg-3 m-3">
+        <button type="button" class="btn btn-primary" (click)="generarQR(url)">Generar</button>
+    </div>
+    <div class="col col-lg-3">
         <div [innerHtml]="qr"></div>
     </div>
 </div>
