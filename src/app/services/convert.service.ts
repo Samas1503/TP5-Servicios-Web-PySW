@@ -9,7 +9,7 @@ export class ConvertService {
   
   constructor(private http: HttpClient) {}
 
-  public getCurrecy(have: string, want: string, amount: number): Observable<any>{
+  public getCurrecy(have: string, want: string, amount: number):Observable<any>{
     const httpOptions = {
       mmrthod:"GET",
       params: {

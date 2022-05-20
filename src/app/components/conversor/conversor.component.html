@@ -24,8 +24,8 @@
                             <p class="mx-0 my-1 text-center text-capitalize">inverse</p>
                         </td>
                         <td *ngFor="let valor of dato.valor.directo;let i=index">
-                            <p class="text-center my-1">{{dato.valor.directo[i] | number:"1.6"}}</p>
-                            <p class="text-center my-1">{{dato.valor.inverso[i] | number:"1.6"}}</p>
+                            <p class="text-center my-1">{{dato.valor.directo[i] | number:"1.5"}}</p>
+                            <p class="text-center my-1">{{dato.valor.inverso[i] | number:"1.5"}}</p>
                         </td>
                     </tr>
                 </tbody>
@@ -53,7 +53,7 @@
             </div>
             <div class="m-3">
                 <small>Total: </small>
-                <p class="bg-light text-dark text-end p-2 rounded">{{posterior+"$"}}{{montoP | number:'1.6' }}</p>
+                <p class="bg-light text-dark text-end p-2 rounded">{{posterior+"$"}}{{montoP | number:'1.2' }}</p>
             </div>
         </form>
     </div>

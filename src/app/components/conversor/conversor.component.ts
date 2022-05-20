@@ -64,72 +64,78 @@ export class ConversorComponent implements OnInit {
       },
     ];
     //Datos de la tabla
-    //* ignorar 
+    //* ignorar
     this.datos = [
       {
         icono: '../assets/icons/usd.png',
-        nombre: 'usd',
+        nombre: 'USD',
         valor: {
-          directo:[
-            1.0, 0.919901, 0.811469, 108.9079, 7.057569, 1.619886, 0.00014,
-            64.87725,
-          ],
-          inverso:[
-            1.0, 1.087074, 1.232332, 0.009182, 0.141692, 0.617328, 7148.757,
-            0.015414,
-          ],
+          directo: [],
+          inverso: [],
         },
       },
       {
         icono: '../assets/icons/eur.png',
-        nombre: 'eur',
+        nombre: 'EUR',
         valor: {
-          directo:[
-            1.087074, 1.0, 0.882127, 118.391, 7.6781, 1.760936, 0.000152,
-            70.52637,
-          ],
-          inverso:[
-            0.919901, 1.0, 1.133623, 0.008447, 0.130342, 0.56788, 6576.146,
-            0.014179,
-          ],
+          directo: [],
+          inverso: [],
         },
       },
       {
         icono: '../assets/icons/gbp.png',
-        nombre: 'gbp',
+        nombre: 'GBP',
         valor: {
-          directo:[
-            1.232332, 1.133623, 1.0, 134.2108, 8.697272, 1.996238, 0.000172,
-            79.95034,
-          ],
-          inverso:[
-            0.811469, 0.882127, 1.0, 0.007451, 0.114979, 0.500942, 5800.997,
-            0.012508,
-          ],
+          directo: [],
+          inverso: [],
         },
       },
       {
         icono: '../assets/icons/rub.png',
-        nombre: 'rub',
+        nombre: 'RUB',
         valor: {
-          directo:[
-            0.013226, 0.012166, 0.010732, 1.440365, 0.09334, 0.021424, 0.000002,
-            0.858036,
-          ],
-          inverso:[
-            75.61134, 82.19511, 93.1783, 0.694268, 10.71351, 46.67696, 540527.1,
-            1.165452,
-          ],
+          directo: [],
+          inverso: [],
         },
       },
     ];
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.convertirMonedasTabla();
+  }
 
   convertirModena(tengo: string, quiero: string, monto: number) {
     this.conversorService.getCurrecy(tengo, quiero, monto).subscribe((res) => {
       this.montoP = res.new_amount;
     });
+  }
+
+  convertirMonedasTabla() {
+    for (let e = 0; e < this.datos.length; e++) {
+      let i = 0;
+      let timeID = setInterval(() => {
+        this.conversorService
+          .getCurrecy(this.datos[e].nombre, this.monedas[i].nombre, 1)
+          .subscribe((res) => {
+            this.datos[e].valor.directo.push(Number.parseFloat(res.new_amount));
+          });
+        i++;
+        if (i >= this.monedas.length) clearInterval(timeID);
+      }, 300);
+    }
+
+    for (let e = 0; e < this.datos.length; e++) {
+      let i = 0;
+      let timeID = setInterval(() => {
+        this.conversorService
+          .getCurrecy(this.monedas[i].nombre, this.datos[e].nombre, 1)
+          .subscribe((res) => {
+            this.datos[e].valor.inverso.push(Number.parseFloat(res.new_amount));
+          });
+        i++;
+        if (i >= this.monedas.length) clearInterval(timeID);
+      }, 300);
+    }
   }
 }
