@@ -6,10 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class TranstaleService {
-  
-  constructor(private http: HttpClient) { }
-  
-  public async translateText(source: string, target: string, text: string): Promise<Observable<any>> {
+  constructor(private http: HttpClient) {}
+
+  public async translateText(
+    source: string,
+    target: string,
+    text: string
+  ): Promise<Observable<any>> {
     const httpOptions = {
       headers: new HttpHeaders({
         'content-type': 'application/json',
@@ -20,13 +23,33 @@ export class TranstaleService {
       }),
     };
     const body = {
-      "q": text,
-      "source": source,
-      "target": target
-    }
+      q: text,
+      source: source,
+      target: target,
+    };
     return await this.http.post(
       'https://deep-translate1.p.rapidapi.com/language/translate/v2',
       JSON.stringify(body),
+      httpOptions
+    );
+  }
+
+  public getTranslate(source: string,target: string,texto: string): Observable<any> {
+    const httpOptions = {
+      method: 'POST',
+      headers: new HttpHeaders({
+        'content-type': 'application/x-www-form-urlencoded',
+        'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com',
+        'X-RapidAPI-Key': '75a0bd75fbmsh188069af6b38a4fp1ceb8ajsn3cdb75799824',
+      }),
+    };
+    const body = new HttpParams()
+      .set('source', source)
+      .set('target', target)
+      .set('q', texto);
+    return this.http.post(
+      'https://google-translate1.p.rapidapi.com/language/translate/v2',
+      body,
       httpOptions
     );
   }

@@ -1,0 +1,20 @@
+<input type="number" [(ngModel)]="id" placeholder="Ingrese id dej juego">
+<button type="button" class="btn btn-primary" (click)="getGame(id)">Buscar Juego</button>
+
+<div *ngFor="let juego of juegos" class="d-flex justify-content-center">
+    <div class="card bg-dark text-white col-12 col-sm-10 col-md-6 col-lg-4 col-xl-3">
+        <div class="card-header">
+            <h3>{{juego.title}}</h3>
+        </div>
+        <div class="card-body">
+            <img [src]="juego.img" alt="" class="img-fluid img-top">
+            <p class="fs-4">Requisitos</p>
+            <ul>
+                <li class="fs-5">{{juego.requirement.os}}</li>
+                <li class="fs-5">{{juego.requirement.processor}}</li>
+                <li class="fs-5">{{juego.requirement.storage}}</li>
+                <li class="fs-5">{{juego.requirement.graphics}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
