@@ -5,6 +5,7 @@ import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { ConversorComponent } from './components/conversor/conversor.component';
 import { GamesComponent } from './components/games/games.component';
 import { CrearQRComponent } from './components/crear-qr/crear-qr.component';
+import { DeezerComponent } from './components/deezer/deezer.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'traductor', component: TraductorComponent, pathMatch: 'full' },
   { path: 'qrCreator', component: CrearQRComponent, pathMatch: 'full' },
   { path: 'games', component: GamesComponent, pathMatch: 'full' },
+  { path: 'deezer', component: DeezerComponent, pathMatch: 'full' },
 ];
 
 @NgModule({

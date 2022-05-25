@@ -12,9 +12,10 @@ import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { ConversorComponent } from './components/conversor/conversor.component';
 import { CrearQRComponent } from './components/crear-qr/crear-qr.component';
 import { GamesComponent } from './components/games/games.component';
+import { DeezerComponent } from './components/deezer/deezer.component';
 
 @NgModule({
-  declarations: [AppComponent, TraductorComponent, NavComponent, PeliculasComponent, ConversorComponent, CrearQRComponent, GamesComponent],
+  declarations: [AppComponent, TraductorComponent, NavComponent, PeliculasComponent, ConversorComponent, CrearQRComponent, GamesComponent, DeezerComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

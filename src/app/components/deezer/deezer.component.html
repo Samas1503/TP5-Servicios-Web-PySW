@@ -1,0 +1,24 @@
+<div class="d-flex justify-content-center">
+    <div class="form-group">
+        <input type="text" name="busquedaCancion" id="busquedaCancion" placeholder="Ingrese la cancion a buscar" [(ngModel)]="nombre" class="form-control">
+    </div>
+    <button class="btn btn-primary" (click)="buscarCanciones(nombre)"><i class="bi bi-search"> Buscar</i></button></div>
+
+<div class="row p-0 m-0">
+    <div class="card col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let cancion of canciones">
+        <div class="card-header">
+            <img [src]="cancion.imagen" class="img-fluid" alt="">
+            <div class="card-body">
+                <div class="d-flex flex-column align-items-center">
+                    <p class="fs-5">{{cancion.title}}</p>
+                    <p class="fs-7">{{cancion.artista}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <audio controls class="w-100">
+                    <source [src]="cancion.url" type="audio/mp3">
+                </audio>
+            </div>
+        </div>
+    </div>
+</div>
