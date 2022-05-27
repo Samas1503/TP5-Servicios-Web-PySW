@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <form class="d-flex col-8">
+            <div class="form-group w-75">
+                <input type="text" name="buscarLibro" id="buscarLibro" [(ngModel)]="nombre" class="form-control" placeholder="ingrese el nombre del libro que desaea buscar">
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="buscarLibros(nombre)"><i class="bi bi-search"></i> Buscar</button>
+            </div>
+        </form>
+        <div class="col-4" *ngIf="muestra!=undefined">
+            <div class="card">
+                <div class="card header d-flex justify-content-between">
+                    <h3 class="fs-4">{{muestra.titulo}}</h3>
+                    <p class="text-primary">#{{muestra.id}}</p>
+                </div>
+                <div class="card-body"><img [src]="muestra.cover" alt="" class="card-img-top img-fluid"></div>
+                <div class="card-footer">
+                    <ul>
+                        <li class="fs-5" *ngFor="let autor of muestra.autores">
+                            {{autor}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID Book</th>
+                    <th scope="col">Titulo del Libro</th>
+                    <th scope="col">Tapa (Imagen)</th>
+                    <th scope="col">Autores</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="libros.length==0">
+                    <td colspan="4">
+                        <p class="text-center">No encontraron libros</p>
+                    </td>
+                </tr>
+                <tr *ngFor="let libro of libros">
+                    <th (click)="mostrarLibro(libro)">{{libro.id}}</th>
+                    <td class="bg-primary text-white p-2">{{libro.titulo}}</td>
+                    <td>
+                        <img [src]="libro.cover" alt=""></td>
+                    <td>
+                        <ul>
+                            <li *ngFor="let autor of libro.autores">{{autor}}</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

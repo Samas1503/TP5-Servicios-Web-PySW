@@ -1,3 +1,4 @@
+import { ExamenComponent } from './components/examen/examen.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TraductorComponent } from './components/traductor/traductor.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'qrCreator', component: CrearQRComponent, pathMatch: 'full' },
   { path: 'games', component: GamesComponent, pathMatch: 'full' },
   { path: 'deezer', component: DeezerComponent, pathMatch: 'full' },
+  { path: 'biblioteca', component: ExamenComponent, pathMatch: 'full' },
 ];
 
 @NgModule({
